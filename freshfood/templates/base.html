@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} FreshFood - Homepage {% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    {% block hero %} {% endblock %}
+
+    <header class="header">
+      <a href="" class="header__brand">
+        FreshFood
+      </a>
+
+      <div class="header__buttons">
+        {% if False %}
+        <a href="#" class="header__profile-button">
+          <i class="far fa-user"></i>
+        </a>
+
+        <a href="#" class="header__cart-button">
+          <i class="fas fa-shopping-bag"></i>
+          <p>6</p>
+        </a>
+        {% endif %}
+
+        <a href="#" class="header__login-button">
+          <i class="fas fa-sign-in-alt"></i>
+          <p>Login</p>
+        </a>
+
+        <div class="header__menu-button">
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+        </div>
+      </div>
+
+      <nav class="navigation">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a href="/">Homepage</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#">Fresh Foods</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#">Fresh Drinks</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#">Fresh Gadgets</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#">Search</a>
+          </li>
+
+          <li class="navigation__social-media">
+            <a href="#">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-instagram-square"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+
+    <div class="modal" id="register-modal">
+      <div class="modal__content">
+        <div class="modal__heading">
+          <p class="modal__heading--text">Create An Account</p>
+          <p class="modal__heading--close" id="close-register-modal">
+            <i class="fas fa-times"></i>
+          </p>
+        </div>
+
+        <div class="modal__form">
+          <form action="#" method="post">
+            <p>
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" />
+            </p>
+            <p>
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" />
+            </p>
+            <p>
+              <label for="username">Password</label>
+              <input type="password" name="password" id="password" />
+            </p>
+
+            <input
+              type="submit"
+              class="btn btn--primary btn--block"
+              value="Create An Account"
+            />
+          </form>
+          <p class="modal__form--message">
+            You have already created an account? You can
+            <a href="#" id="open-login-modal">login here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="login-modal">
+      <div class="modal__content">
+        <div class="modal__heading">
+          <p class="modal__heading--text">Login</p>
+          <p class="modal__heading--close" id="close-login-modal">
+            <i class="fas fa-times"></i>
+          </p>
+        </div>
+
+        <div class="modal__form">
+          <form action="#" method="post">
+            <p>
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" />
+            </p>
+            <p>
+              <label for="username">Password</label>
+              <input type="password" name="password" id="password" />
+            </p>
+
+            <input
+              type="submit"
+              class="btn btn--primary btn--block"
+              value="Login"
+            />
+          </form>
+          <p class="modal__form--message" id="open-register-modal">
+            You don't have an account? You can
+            <a href="#">create an account</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/d791987f9f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block script %} {% endblock %}
+  </body>
+</html>

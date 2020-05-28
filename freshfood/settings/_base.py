@@ -47,7 +47,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'freshfood.apps.users'
+    'freshfood.apps.users',
+    'freshfood.apps.products',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
