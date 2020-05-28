@@ -1,0 +1,4 @@
+Django==3.0.6
+Pillow==7.0.0
+easy-thumbnails==2.7
+redis==3.4.1
