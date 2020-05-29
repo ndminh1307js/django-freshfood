@@ -49,6 +49,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'freshfood.apps.users',
     'freshfood.apps.products',
+    'freshfood.apps.cart',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -160,3 +161,6 @@ REDIS_DB = 0
 
 # Custom User model
 AUTH_USER_MODEL = 'users.User'
+
+# Cart Session
+CART_SESSION_ID = 'cart'
