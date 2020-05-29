@@ -1,49 +1,44 @@
 {% extends 'base.html' %}
-
 {% load thumbnail %}
 
 {% block title %}
-  {% if category %}
-    Category: {{ category.name }}
-  {% else %}
-    Products
-  {% endif %}
+  {% if category %}Category: {{ category.name }}{% else %}Products{% endif %}
 {% endblock %}
 
 {% block content %}
-  <p class="breadcrumb">
-    <a href="/">FreshFood Homepage</a>
-    {% if category %}
-      <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-    {% endif %}
-  </p>
+<p class="breadcrumb">
+  <a href="/">FreshFood Homepage</a>
+  {% if category %}
+    <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+  {% endif %}
+</p>
 
-  <p class="heading-primary">{{ category.name }}</p>
+<p class="heading-primary">{{ category.name }}</p>
 
-  <div class="card-grid">
-    {% for product in products %}
-      <div class="card">
-        <img
-          src="{% thumbnail product.image 640x480 crop %}"
-          alt="{{ product.slug }}"
-          class="card__image"
-        />
+<div class="card-grid">
+  {% for product in products %}
+  <div class="card">
+    <img
+      src="{% thumbnail product.image 640x480 crop %}"
+      alt="{{ product.slug }}"
+      class="card__image"
+    />
 
-        <div class="card__content">
-          <p class="card__title">{{ product.name }}</p>
-          <p class="card__description">
-            {{ product.description }}
-          </p>
-          <p class="card__price">Price: <span>${{ product.price }}</span></p>
-        </div>
+    <div class="card__content">
+      <p class="card__title">{{ product.name }}</p>
+      <p class="card__description">
+        {{ product.description }}
+      </p>
+      <p class="card__price">Price: <span>${{ product.price }}</span></p>
+    </div>
 
-        <div class="card__button">
-          <a href="#" class="card__button--order">Order</a>
-          <a href="{{ product.get_absolute_url }}" class="card__button--detail">Detail</a>
-        </div>
-      </div>
-    {% empty %}
-      No products
-    {% endfor%}
+    <div class="card__button">
+      <a href="#" class="card__button--order">Order</a>
+      <a href="{{ product.get_absolute_url }}" class="card__button--detail"
+        >Detail</a
+      >
+    </div>
   </div>
+  {% empty %} No Products {% endfor%}
+</div>
 {% endblock %}

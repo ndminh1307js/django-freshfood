@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<p class="breadcrumb">
+  <a href="/">FreshFood Homepage</a>
+  <a href="{{ product.category.get_absolute_url }}">
+    {{ product.category.name }}
+  </a>
+  <a href="{{ product.get_absolute_url }}">
+    {{ product.name }}
+  </a>
+</p>
+
+<div class="detail">
+  <div class="detail__image">
+    <img
+      src="{% thumbnail product.image 960x720 crop %}"
+      alt="{{ product.slug }}"
+    />
+  </div>
+
+  <div class="detail__info">
+    <p class="detail__title">{{ product.name }}</p>
+    <p class="detail__description">
+      {{ product.description }}
+    </p>
+    <p class="detail__price">Price: <span>${{ product.price }}</span></p>
+    <p class="detail__stock">
+      Stock:
+      <span>{% if product.available %}In-stock{% else %}Out of tock{% endif%}</span>
+    </p>
+    <p class="detail__ingredients">
+      Main ingredients: <span>Tomato, Noodle, Beef</span>
+    </p>
+    <a href="#" class="btn btn--primary btn--big btn--block">
+      Add To My Menu
+    </a>
+    <a href="#" class="btn btn--danger btn--big btn--block">
+      Checkout
+    </a>
+    <p class="detail__shipping">Shipping: <span>Free</span></p>
+    <p class="detail__payment">Payment: COD/ATM/VISA/MATERCARD/PAYPAL</p>
+  </div>
+</div>
+{% endblock %}

@@ -13,7 +13,7 @@
     {% block hero %} {% endblock %}
 
     <header class="header">
-      <a href="" class="header__brand">
+      <a href="/" class="header__brand">
         FreshFood
       </a>
 
@@ -47,35 +47,37 @@
             <a href="/">Homepage</a>
           </li>
           <li class="navigation__item">
-            <a href="#">Fresh Foods</a>
+            <a href="/products/fresh-foods/">Fresh Foods</a>
           </li>
           <li class="navigation__item">
-            <a href="#">Fresh Drinks</a>
+            <a href="/products/fresh-drinks/">Fresh Drinks</a>
           </li>
           <li class="navigation__item">
-            <a href="#">Fresh Gadgets</a>
+            <a href="/products/kitchen-gadgets/">Kitchen Gadgets</a>
           </li>
           <li class="navigation__item">
             <a href="#">Search</a>
           </li>
 
           <li class="navigation__social-media">
-            <a href="#">
+            <a href="https://www.facebook.com/" target="_blank">
               <i class="fab fa-facebook-square"></i>
             </a>
-            <a href="#">
+            <a href="https://www.twitter.com/" target="_blank">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#">
+            <a href="https://www.youtube.com/" target="_blank">
               <i class="fab fa-youtube"></i>
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/" target="_blank">
               <i class="fab fa-instagram-square"></i>
             </a>
           </li>
         </ul>
       </nav>
     </header>
+
+    {% block message %}{% endblock %}
 
     <div class="content">
       {% block content %}{% endblock %}

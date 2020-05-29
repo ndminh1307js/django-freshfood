@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}FreshFood - Healthy & Balance{% endblock %}
+
+{% block hero %}
+<div class="header__background">
+  <img src="{% static 'img/hero.jpg' %}" alt="hero-arena-image" />
+</div>
+{% endblock %}
+
+{% block message %}
+<div class="message">
+  <p class="message__title">Healthy And Balance</p>
+  <p class="message__subtitle">
+    That is all that FreshFood brings up to you
+  </p>
+  <a href="#" class="btn btn--primary btn--big">
+    Explore Now
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<p class="heading-primary">New Products</p>
+
+<div class="card-grid">
+  {% for product in new_products %}
+    <div class="card">
+      <img
+        src="{% thumbnail product.image 640x480 crop %}"
+        alt="{{ product.slug }}"
+        class="card__image"
+      />
+
+      <div class="card__content">
+        <p class="card__title">{{ product.name }}</p>
+        <p class="card__description">
+          {{ product.description }}
+        </p>
+        <p class="card__price">Price: <span>${{ product.price }}</span></p>
+      </div>
+
+      <div class="card__button">
+        <a href="#" class="card__button--order">Order</a>
+        <a href="{{ product.get_absolute_url }}" class="card__button--detail">Detail</a>
+      </div>
+    </div>
+  {% empty %}
+    No products
+  {% endfor %}
+</div>
+
+{% for category in categories %}
+  <a href="{{ category.get_absolute_url }}" class="heading-primary">{{ category.name }}</a>
+
+  <div class="card-grid">
+    {% for product in category.products.all %}
+      <div class="card">
+        <img
+          src="{% thumbnail product.image 640x480 crop %}"
+          alt="{{ product.slug }}"
+          class="card__image"
+        />
+
+        <div class="card__content">
+          <p class="card__title">{{ product.name }}</p>
+          <p class="card__description">
+            {{ product.description }}
+          </p>
+          <p class="card__price">Price: <span>${{ product.price }}</span></p>
+        </div>
+
+        <div class="card__button">
+          <a href="#" class="card__button--order">Order</a>
+          <a href="{{ product.get_absolute_url }}" class="card__button--detail">Detail</a>
+        </div>
+      </div>
+    {% empty %}
+      No products
+    {% endfor %}
+  </div>
+{% endfor %}
+{% endblock %}
