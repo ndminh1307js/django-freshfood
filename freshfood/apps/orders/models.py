@@ -8,8 +8,8 @@ from freshfood.apps.products.models import Product
 class Order(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    phone_number = PhoneNumberField()
-    email = models.EmailField()
+    phone_number = PhoneNumberField(default='')
+    email = models.EmailField(default='')
     address = models.CharField(max_length=250)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

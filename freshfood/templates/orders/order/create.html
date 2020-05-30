@@ -12,11 +12,57 @@
 
   <p class="heading-primary">Your Checkout</p>
 
-  <div class="order">
-    <form method="post">
-      {{ form.as_p }}
-      <input type="submit" class="btn btn--primary btn--block" value="Place Order">
-    </form>
+  <div class="checkout">
+    <div class="checkout__order">
+      <p class="heading-secondary">Fill All Information Below</p>
+      <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input
+          type="submit"
+          class="btn btn--primary btn--block"
+          value="Place Order"
+        />
+      </form>
+    </div>
+    <div class="checkout__cart">
+      <p class="heading-secondary">Your Order</p>
+      <ul class="checkout__list">
+        {% for item in cart %}
+          {% with product=item.product %}
+            <li class="checkout__item">
+              <img
+                src="{% thumbnail product.image 80x60 crop %}"
+                alt="{{ product.slug }}"
+                class="checkout__image"
+              />
+              <p class="checkout__quantity">{{ item.quantity }} x</p>
+              <a href="{{ product.get_absolute_url }}" class="checkout__title">
+                {{ product.name }}
+              </a>
+              <p class="checkout__total-price">${{ item.total_price }}</p>
+            </li>
+          {% endwith %}
+        {% endfor %}
+      </ul>
+      <ul class="checkout__price">
+        <li>
+          Cart total:
+          <span>${{ checkout.cart_total }}</span>
+        </li>
+        <li>
+          Tax:
+          <span>${{ checkout.tax }}</span>
+        </li>
+        <li>
+          Delivery:
+          <span>${{ checkout.delivery }}</span>
+        </li>
+        <li>
+          Sub total:
+          <span>${{ checkout.sub_total }}</span>
+        </li>
+      </ul>
+    </div>
   </div>
-  
 {% endblock %}

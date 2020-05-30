@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}Your order has been processed{% endblock %}
+
+{% block content %}
+  <p class="breadcrumb">
+    <a href="/">FreshFood Homepage</a>
+    <a href="{% url 'orders:order_create' %}">Checkout</a>
+  </p>
+
+  <p class="heading-primary">Thank you for your order</p>
+
+  <div class="checkout">
+    <div class="checkout__completed">
+      <p class="checkout__message">
+        Your order number <a href="{{ order.get_absolute_url }}">#{{order.id}}</a> has been processed and is
+        preparing for shipping. You can review this order at
+        <a href="{{ order.get_absolute_url }}">this link</a>
+      </p>
+
+      <img src="{% static 'img/shipping.png' %}" alt="shipping" class="checkout__message-image" />
+      <div class="checkout__buttons">
+        <a href="/" class="btn btn--primary">Continue Shopping</a>
+        <a href="/" class="btn btn--danger">Back To Homepage</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

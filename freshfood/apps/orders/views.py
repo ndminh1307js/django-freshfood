@@ -11,8 +11,7 @@ class OrderCreateView(CreateView):
         cart = Cart(request)
         form = OrderCreateForm(request.POST)
         if form.is_valid():
-            order = form.cleaned_data
-            order.save()
+            order = form.save()
             for item in cart:
                 OrderItem.objects.create(order=order,
                                          product=item['product'],
