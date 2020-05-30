@@ -172,7 +172,7 @@ a:visited {
 .cart__content {
   display: flex;
   align-items: center;
-  padding: 1rem 8rem;
+  padding: 1rem 13rem;
   margin-left: 2rem;
   border-radius: 5px;
   transition: background-color 0.5s ease-out; }
@@ -191,7 +191,7 @@ a:visited {
   flex-direction: column; }
 
 .cart__title {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #333; }
 
@@ -200,9 +200,14 @@ a:visited {
   color: #666; }
 
 .cart__price {
-  font-size: 2.4rem;
+  display: flex;
+  font-size: 1.8rem;
   color: #d32f2f;
   font-weight: 700; }
+
+.cart__unit {
+  margin-right: 0;
+  margin-left: auto; }
 
 .cart__close {
   margin-left: auto;
@@ -226,7 +231,6 @@ a:visited {
 
 .cart__checkout p {
   display: flex;
-  justify-content: space-between;
   font-size: 2rem;
   color: #666;
   padding: 1rem 0; }
