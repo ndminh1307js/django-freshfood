@@ -8,7 +8,7 @@ class HomepageView(View):
     template_name = 'home/index.html'
 
     def get(self, request):
-        new_products = Product.objects.all()[:6]
+        new_products = Product.objects.all().order_by('-created')[:4]
         categories = Category.objects.all()
 
         return render(request,

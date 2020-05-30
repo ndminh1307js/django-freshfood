@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}Your cart{% endblock %}
+
+{% block content %}
+  <p class="breadcrumb">
+    <a href="/">FreshFood Homepage</a>
+    <a href="{% url 'cart:cart_detail' %}">Your cart</a>
+  </p>
+
+  <p class="heading-primary">Your Cart</p>
+
+  <div class="cart">
+    <div class="cart__grid">
+      {% for item in cart %}
+        {% with product=item.product %}
+          <div class="cart__item" id="cart-item-{{ product.id }}">
+            <div class="cart__quantity">
+              <span id="increment-{{ product.id }}">+</span>
+              <p id="product-quantity-{{ product.id }}">{{ item.quantity }}</p>
+              <span id="decrement-{{ product.id }}">-</span>
+            </div>
+
+            <a class="cart__content" href="{{ product.get_absolute_url }}">
+              <img
+                src="{% thumbnail product.image 160x120 crop %}"
+                alt="cart__image"
+                class="cart__img"
+              />
+              <div class="cart__text">
+                <p class="cart__title">{{ product.name }}</p>
+                <p class="cart__category">{{ product.category }}</p>
+                <p
+                  class="cart__price"
+                >
+                  <span class="cart__unit">$</span>
+                  <span
+                    class="cart__price-number"
+                    id="price-{{ product.id }}"
+                  >
+                    {{ product.price }}
+                  </span>
+                </p>
+                <p
+                  class="cart__price"
+                  
+                >
+                  <span class="cart__unit">$</span>
+                  <span
+                    class="cart__price-number"
+                    id="total-price-{{ product.id }}"
+                  >
+                    {{ item.total_price }}
+                  </span>
+                </p>
+              </div>
+            </a>
+
+            <div class="cart__close" id="clear-item-{{ product.id }}">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+        {% endwith %}
+      {% endfor %}
+    </div>
+
+    <div class="cart__checkout">
+      <p class="cart__total">
+        Cart total:
+        <span class="cart__unit">$</span>
+        <span id="cart-total">{{ checkout.cart_total }}</span>
+      </p>
+      <p class="cart__tax">
+        Tax:
+        <span class="cart__unit">$</span>
+        <span id="tax">{{ checkout.tax }}</span>
+      </p>
+      <p class="cart__delivery">
+        Delivery:
+        <span class="cart__unit">$</span>
+        <span id="delivery">{{ checkout.delivery }}</span>
+      </p>
+      <p class="cart__subtotal">
+        Subtotal:
+        <span class="cart__unit">$</span>
+        <span id="sub-total">{{ checkout.sub_total }}</span>
+      </p>
+      <a href="#" class="btn btn--primary btn--block"
+        >Proceed To Checkout</a
+      >
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+{% csrf_token %}
+<script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}

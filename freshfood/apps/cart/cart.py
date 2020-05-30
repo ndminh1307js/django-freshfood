@@ -26,9 +26,9 @@ class Cart(object):
             }
 
         if override_quantity:
-            self.cart[product_id] = quantity
+            self.cart[product_id]['quantity'] = quantity
         else:
-            self.cart[product_id] += quantity
+            self.cart[product_id]['quantity'] += quantity
 
         self.save()
 
@@ -37,6 +37,19 @@ class Cart(object):
         self.session.modified = True
 
     def remove(self, product):
+        """
+        Decrement the quantity of a product by 1
+        """
+        product_id = str(product.id)
+
+        if product_id in self.cart:
+            self.cart[product_id]['quantity'] -= 1
+            if self.cart[product_id]['quantity'] == 0:
+                self.clearItem(product)
+
+        self.save()
+
+    def clearItem(self, product):
         """Remove a product from the cart"""
         product_id = str(product.id)
         if product_id in self.cart:
@@ -74,6 +87,27 @@ class Cart(object):
         return sum(
             Decimal(item['price']) * item['quantity'] for item in self.cart.values()
         )
+
+    def get_total_quantity(self):
+        """Get total item quantity in the cart"""
+        return sum(item['quantity'] for item in self.cart.values())
+
+    def get_checkout_info(self):
+        """Get all values for checkout process"""
+        # get checkout information
+        cart_total = self.get_total_price()
+        tax = cart_total / 10
+        delivery = 5
+        sub_total = cart_total + tax + delivery
+        # get total items quantity
+        total_quantity = self.get_total_quantity()
+        return {
+            'total_quantity': total_quantity,
+            'cart_total': cart_total,
+            'tax': tax,
+            'delivery': delivery,
+            'sub_total': sub_total
+        }
 
     def clear(self):
         """ Clear all items in the cart """

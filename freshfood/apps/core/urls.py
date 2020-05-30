@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomepageView.as_view(), name='home'),
     path('products/', include('freshfood.apps.products.urls', namespace='products')),
+    path('cart/', include('freshfood.apps.cart.urls', namespace='cart')),
 ]
 
 if settings.DEBUG:

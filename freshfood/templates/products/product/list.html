@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load thumbnail %}
 
 {% block title %}
@@ -33,7 +34,7 @@
     </div>
 
     <div class="card__button">
-      <a href="#" class="card__button--order">Order</a>
+      <a href="#" class="card__button--order" id="product-{{ product.id }}">Order</a>
       <a href="{{ product.get_absolute_url }}" class="card__button--detail"
         >Detail</a
       >
@@ -41,4 +42,9 @@
   </div>
   {% empty %} No Products {% endfor%}
 </div>
+{% endblock %}
+
+{% block script %}
+{% csrf_token %}
+<script src="{% static 'js/card.js' %}"></script>
 {% endblock %}
