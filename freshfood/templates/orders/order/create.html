@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+  <p class="breadcrumb">
+    <a href="/">FreshFood Homepage</a>
+    <a href="{% url 'orders:order_create' %}">Checkout</a>
+  </p>
+
+  <p class="heading-primary">Your Checkout</p>
+
+  <div class="order">
+    <form method="post">
+      {{ form.as_p }}
+      <input type="submit" class="btn btn--primary btn--block" value="Place Order">
+    </form>
+  </div>
+  
+{% endblock %}

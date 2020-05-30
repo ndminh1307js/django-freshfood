@@ -2,3 +2,5 @@ Django==3.0.6
 Pillow==7.0.0
 easy-thumbnails==2.7
 redis==3.4.1
+django-phonenumber-field==4.0.0
+phonenumbers

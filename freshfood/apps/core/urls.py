@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.HomepageView.as_view(), name='home'),
     path('products/', include('freshfood.apps.products.urls', namespace='products')),
     path('cart/', include('freshfood.apps.cart.urls', namespace='cart')),
+    path('orders/', include('freshfood.apps.orders.urls', namespace='orders'))
 ]
 
 if settings.DEBUG:

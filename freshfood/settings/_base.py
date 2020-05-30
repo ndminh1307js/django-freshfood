@@ -44,12 +44,14 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'easy_thumbnails',
+    'phonenumber_field',
 ]
 
 LOCAL_APPS = [
     'freshfood.apps.users',
     'freshfood.apps.products',
     'freshfood.apps.cart',
+    'freshfood.apps.orders',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

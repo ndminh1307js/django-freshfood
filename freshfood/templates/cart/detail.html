@@ -88,7 +88,7 @@
         <span class="cart__unit">$</span>
         <span id="sub-total">{{ checkout.sub_total }}</span>
       </p>
-      <a href="#" class="btn btn--primary btn--block"
+      <a href="{% url 'orders:order_create' %}" class="btn btn--primary btn--block"
         >Proceed To Checkout</a
       >
     </div>

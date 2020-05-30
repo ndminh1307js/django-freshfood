@@ -288,7 +288,9 @@ a:visited {
     color: #999; }
 
 form p input[type="text"],
-form p input[type="password"] {
+form p input[type="password"],
+form p input[type="tel"],
+form p input[type="email"] {
   width: 30rem;
   font-size: 2rem;
   padding: 0.5rem 1rem;
