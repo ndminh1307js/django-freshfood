@@ -4,3 +4,5 @@ easy-thumbnails==2.7
 redis==3.4.1
 django-phonenumber-field==4.0.0
 phonenumbers
+celery==4.4.2
+flower==0.9.3

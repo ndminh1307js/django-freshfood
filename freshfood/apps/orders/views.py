@@ -5,6 +5,8 @@ from .models import OrderItem
 from .forms import OrderCreateForm
 from freshfood.apps.cart.cart import Cart
 
+from .tasks import order_created
+
 
 class OrderCreateView(CreateView):
     def post(self, request):
@@ -20,6 +22,8 @@ class OrderCreateView(CreateView):
 
             # clear the cart
             cart.clear()
+            # launch asynchronous task
+            order_created.delay(order.id)
             return render(request,
                           'orders/order/created.html',
                           {'order': order})

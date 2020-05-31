@@ -167,3 +167,11 @@ AUTH_USER_MODEL = 'users.User'
 
 # Cart Session
 CART_SESSION_ID = 'cart'
+
+# Email Backend settings
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ndminh1307js@gmail.com'
+EMAIL_HOST_PASSWORD = '@6991hniM'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
