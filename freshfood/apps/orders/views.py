@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.urls import reverse
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 
 from .models import OrderItem
@@ -24,9 +25,14 @@ class OrderCreateView(CreateView):
             cart.clear()
             # launch asynchronous task
             order_created.delay(order.id)
-            return render(request,
-                          'orders/order/created.html',
-                          {'order': order})
+            # return render(request,
+            #               'orders/order/created.html',
+            #               {'order': order})
+
+            # set the order id in the section
+            request.session['order_id'] = order.id
+            # redirect for payment
+            return redirect(reverse('payment:process'))
 
     def get(self, request):
         cart = Cart(request)

@@ -7,6 +7,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import braintree
 from django.urls import reverse_lazy
 import os
 
@@ -52,6 +53,7 @@ LOCAL_APPS = [
     'freshfood.apps.products',
     'freshfood.apps.cart',
     'freshfood.apps.orders',
+    'freshfood.apps.payment',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -175,3 +177,16 @@ EMAIL_HOST_USER = 'ndminh1307js@gmail.com'
 EMAIL_HOST_PASSWORD = '@6991hniM'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Braintree settings
+BRAINTREE_MERCHANT_ID = 'gvhpmfz8fymzb8hq'
+BRAINTREE_PUBLIC_KEY = 'brsqz7d27pjmwqt5'
+BRAINTREE_PRIVATE_KEY = '8eefe7153e8afe81f40bd9363f730581'
+
+
+BRAINTREE_CONF = braintree.Configuration(
+    environment=braintree.Environment.Sandbox,
+    merchant_id=BRAINTREE_MERCHANT_ID,
+    public_key=BRAINTREE_PUBLIC_KEY,
+    private_key=BRAINTREE_PRIVATE_KEY
+)
