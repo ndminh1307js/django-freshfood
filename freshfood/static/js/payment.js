@@ -17,14 +17,20 @@ braintree.client.create(
       {
         client: clientInstance,
         styles: {
-          input: { 'font-size': '13px' },
+          input: { 'font-size': '1.2rem', border: '1px solid red' },
           'input.invalid': { color: 'red' },
           'input.valid': { color: 'green' },
         },
         fields: {
-          number: { selector: '#card-number' },
-          ccv: { selector: '#ccv' },
-          expirationDate: { selector: '#expiration-date' },
+          number: {
+            selector: '#card-number',
+            placeholder: '4111 1111 1111 1111',
+          },
+          cvv: { selector: '#cvv', placeholder: '123' },
+          expirationDate: {
+            selector: '#expiration-date',
+            placeholder: '10/2022',
+          },
         },
       },
       function (hostedFieldsErr, hostedFieldsInstance) {
@@ -35,21 +41,25 @@ braintree.client.create(
 
         submit.removeAttribute('disabled');
 
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
+        form.addEventListener(
+          'submit',
+          function (e) {
+            e.preventDefault();
 
-          hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-            if (tokenizeErr) {
-              console.log(tokenizeErr);
-              return;
-            }
+            hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+              if (tokenizeErr) {
+                console.log(tokenizeErr);
+                return;
+              }
 
-            // set nonce to send to server
-            document.getElementById('nonce').value = payload.nonce;
-            // submit form
-            form.submit();
-          }, false);
-        });
+              // set nonce to send to server
+              document.getElementById('nonce').value = payload.nonce;
+              // submit form
+              form.submit();
+            });
+          },
+          false
+        );
       }
     );
   }

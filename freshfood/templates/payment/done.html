@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Pay by credit card{% endblock %}
+
+{% block content %}
+  <p class="breadcrumb">
+    <a href="/">FreshFood Homepage</a>
+    <a href="{% url 'payment:process' %}">Payment</a>
+  </p>
+
+  <p class="heading-primary">Pay By Credit Card</p>
+
+  <div class="payment">
+    <p class="message">Your payment has been successfully</p>
+  </div>
+{% endblock %}
