@@ -1,8 +1,10 @@
 from django.urls import reverse
-from django.shortcuts import render, redirect
-from django.views.generic import CreateView
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import CreateView, DetailView
+from django.contrib.admin.views.decorators import staff_member_required
+from django.utils.decorators import method_decorator
 
-from .models import OrderItem
+from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from freshfood.apps.cart.cart import Cart
 
@@ -43,3 +45,14 @@ class OrderCreateView(CreateView):
                       {'cart': cart,
                        'checkout': checkout,
                        'form': form})
+
+
+@method_decorator(staff_member_required, name='dispatch')
+class OrderAdminDetailView(DetailView):
+    template_name = 'admin/orders/order/detail.html'
+
+    def get(self, request, order_id):
+        order = get_object_or_404(Order, id=order_id)
+        return render(request,
+                      self.template_name,
+                      {'order': order})
