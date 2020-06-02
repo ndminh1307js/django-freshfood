@@ -51,16 +51,16 @@
           <span>${{ checkout.cart_total }}</span>
         </li>
         <li>
-          Tax:
-          <span>${{ checkout.tax }}</span>
+          Discount:
+          <span>- ${{ cart.get_discount|floatformat:2 }}</span>
         </li>
         <li>
           Delivery:
           <span>${{ checkout.delivery }}</span>
         </li>
         <li>
-          Sub total:
-          <span>${{ checkout.sub_total }}</span>
+          Subtotal:
+          <span>${{ cart.get_total_price_after_discount|floatformat:2 }}</span>
         </li>
       </ul>
     </div>
