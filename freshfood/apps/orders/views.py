@@ -3,6 +3,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import CreateView, DetailView
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+
+import weasyprint
 
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
@@ -56,3 +61,19 @@ class OrderAdminDetailView(DetailView):
         return render(request,
                       self.template_name,
                       {'order': order})
+
+
+@method_decorator(staff_member_required, name='dispatch')
+class OrderAdminPdfView(DetailView):
+    template_name = 'orders/order/pdf.html'
+
+    def get(self, request, order_id):
+        order = get_object_or_404(Order, id=order_id)
+        html = render_to_string(self.template_name, {'order': order})
+
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = f'filename=order_{order.id}.pdf'
+        weasyprint.HTML(string=html).write_pdf(response,
+                                               stylesheets=[weasyprint.CSS(
+                                                   settings.STATIC_ROOT + '/css/style.css')])
+        return response
