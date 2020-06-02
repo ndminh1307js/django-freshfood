@@ -100,17 +100,13 @@ class Cart(object):
         """Get all values for checkout process"""
         # get checkout information
         cart_total = self.get_total_price()
-        tax = cart_total / 10
         delivery = 5
-        sub_total = cart_total + tax + delivery
         # get total items quantity
         total_quantity = self.get_total_quantity()
         return {
             'total_quantity': total_quantity,
             'cart_total': cart_total,
-            'tax': tax,
             'delivery': delivery,
-            'sub_total': sub_total
         }
 
     def clear(self):
@@ -133,4 +129,4 @@ class Cart(object):
         return Decimal(0)
 
     def get_total_price_after_discount(self):
-        return (self.get_total_price() - self.get_discount())
+        return (self.get_total_price() - self.get_discount()) + self.get_checkout_info()['delivery']

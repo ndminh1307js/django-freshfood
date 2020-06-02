@@ -67,30 +67,50 @@
       {% endfor %}
     </div>
 
-    <div class="cart__checkout">
-      <p class="cart__total">
-        Cart total:
-        <span class="cart__unit">$</span>
-        <span id="cart-total">{{ checkout.cart_total }}</span>
-      </p>
-      <p class="cart__tax">
-        Tax:
-        <span class="cart__unit">$</span>
-        <span id="tax">{{ checkout.tax }}</span>
-      </p>
-      <p class="cart__delivery">
-        Delivery:
-        <span class="cart__unit">$</span>
-        <span id="delivery">{{ checkout.delivery }}</span>
-      </p>
-      <p class="cart__subtotal">
-        Subtotal:
-        <span class="cart__unit">$</span>
-        <span id="sub-total">{{ checkout.sub_total }}</span>
-      </p>
-      <a href="{% url 'orders:order_create' %}" class="btn btn--primary btn--block"
-        >Proceed To Checkout</a
-      >
+    <div class="cart__subgrid">
+      <div class="cart__coupon">
+        {% if cart.coupon %}
+          Coupon <span class="text-highlight">'{{ cart.coupon.code }}'</span> applied ({{ cart.coupon.discount }}% off )
+        {% else %}
+          <p class="cart__heading">
+            Apply a coupon
+          </p>
+          <form action="{% url 'coupons:apply' %}" method="post" class="form--inline">
+            {{ coupon_apply_form.as_p }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn--primary btn--small" value="Apply">
+          </form>
+        {% endif %}
+      </div>
+
+      <div class="cart__checkout">
+        <p class="cart__total">
+          Cart total:
+          <span class="cart__unit">$</span>
+          <span id="cart-total">{{ checkout.cart_total }}</span>
+        </p>
+        <p class="cart__discount">
+          Discount:
+          <span class="cart__unit">- $</span>
+          <span id="discount">{{ cart.get_discount|floatformat:2 }}</span>
+        </p>
+        <p class="cart__delivery">
+          Delivery:
+          <span class="cart__unit">$</span>
+          <span id="delivery">{{ checkout.delivery }}</span>
+        </p>
+        <p class="cart__subtotal">
+          Subtotal:
+          <span class="cart__unit">$</span>
+          <span id="subtotal">{{ cart.get_total_price_after_discount|floatformat:2 }}</span>
+        </p>
+        <a
+          href="{% url 'orders:order_create' %}"
+          class="btn btn--primary btn--block"
+        >
+          Proceed To Checkout
+        </a>
+      </div>
     </div>
   </div>
 {% endblock %}

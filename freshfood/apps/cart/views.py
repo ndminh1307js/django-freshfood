@@ -6,6 +6,7 @@ from freshfood.apps.products.models import Product
 from django.views.generic import View, DetailView
 
 from .cart import Cart
+from freshfood.apps.coupons.forms import CouponApplyForm
 
 
 @method_decorator(require_POST, name='dispatch')
@@ -63,7 +64,10 @@ class CartDetailView(DetailView):
         # update checkout
         checkout = cart.get_checkout_info()
 
+        coupon_apply_form = CouponApplyForm()
+
         return render(request,
                       self.template_name,
                       {'cart': cart,
-                       'checkout': checkout})
+                       'checkout': checkout,
+                       'coupon_apply_form': coupon_apply_form})
