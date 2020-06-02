@@ -5,6 +5,7 @@ from django.conf import settings
 from django.views.generic import View
 
 from freshfood.apps.orders.models import Order
+from .tasks import payment_completed
 
 # instantiate Braintree payment gateway
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
@@ -29,10 +30,13 @@ class PaymentProcessView(View):
 
         if result.is_success:
             # mark the order as paid
-            order.pait = True
+            order.paid = True
             # store unique transaction id
             order.braintree_id = result.transaction.id
             order.save()
+            # launch asynchronous task
+            payment_completed.delay(order.id)
+
             return redirect('payment:done')
         else:
             return redirect('payment:canceled')
