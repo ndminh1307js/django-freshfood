@@ -2,6 +2,7 @@ from decimal import Decimal
 
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils.translation import gettext_lazy as _
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -10,11 +11,11 @@ from freshfood.apps.coupons.models import Coupon
 
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    phone_number = PhoneNumberField(default='')
-    email = models.EmailField(default='')
-    address = models.CharField(max_length=250)
+    first_name = models.CharField(_('first name'), max_length=50)
+    last_name = models.CharField(_('last name'), max_length=50)
+    phone_number = PhoneNumberField(_('phone number'), default='')
+    email = models.EmailField(_('email'), default='')
+    address = models.CharField(_('address'), max_length=250)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
