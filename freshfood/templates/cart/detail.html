@@ -110,7 +110,7 @@
         <p class="cart__subtotal">
           {% trans 'Subtotal' %}:
           <span class="cart__unit">$</span>
-          <span id="subtotal">{{ cart.get_total_price_after_discount|floatformat:2 }}</span>
+          <span id="sub-total">{{ cart.get_total_price_after_discount|floatformat:2 }}</span>
         </p>
         <a
           href="{% url 'orders:order_create' %}"

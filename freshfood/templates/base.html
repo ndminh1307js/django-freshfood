@@ -156,6 +156,10 @@
       </div>
     </div>
 
+    <!--Get current language-->
+    {% get_current_language  as LANGUAGE_CODE %}
+    <input type="hidden" name="language" id="current-language" value="{{LANGUAGE_CODE}}">
+
     <script
       src="https://kit.fontawesome.com/d791987f9f.js"
       crossorigin="anonymous"

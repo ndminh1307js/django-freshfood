@@ -4,13 +4,15 @@ const totalQuantityInCartIcon = document.querySelector(
   '.header__cart-button p'
 );
 
+const languageCode = document.querySelector('#current-language').value;
+
 orderButtons.forEach((orderBtn) => {
   orderBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     const productId = orderBtn.id.split('-')[1];
 
-    fetch(`/cart/add/${productId}/`, {
+    fetch(`/${languageCode}/cart/add/${productId}/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

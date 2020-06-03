@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 
 from . import views
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('', views.HomepageView.as_view(), name='home'),
     path('products/', include('freshfood.apps.products.urls', namespace='products')),
@@ -29,7 +30,7 @@ urlpatterns = [
     path('payment/', include('freshfood.apps.payment.urls', namespace='payment')),
     path('coupons/', include('freshfood.apps.coupons.urls', namespace='coupons')),
     path('rosetta/', include('rosetta.urls')),
-]
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

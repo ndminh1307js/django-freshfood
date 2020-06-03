@@ -10,6 +10,8 @@ const tax = document.getElementById('tax');
 const delivery = document.getElementById('delivery');
 const sub_total = document.getElementById('sub-total');
 
+const languageCode = document.querySelector('#current-language').value;
+
 /* Fetch Post */
 async function fetchPost(url) {
   const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
@@ -31,7 +33,6 @@ async function fetchPost(url) {
 function updatedCheckout(checkout) {
   // update checkout section
   cart_total.innerHTML = checkout['cart_total'];
-  tax.innerHTML = checkout['tax'];
   delivery.innerHTML = checkout['delivery'];
   sub_total.innerHTML = checkout['sub_total'];
   // update total quantity in header cart icon
@@ -60,6 +61,7 @@ function updateCartItem(productId, orient) {
     if (previousQuantity === 1) {
       // Remove cart item from cart detail page
       const cartItem = document.querySelector(`#cart-item-${productId}`);
+      console.log(cartItem);
       cartGrid.removeChild(cartItem);
     }
   }
@@ -70,7 +72,7 @@ incrementButtons.forEach((inc) => {
   inc.addEventListener('click', () => {
     const productId = inc.id.split('-')[1];
 
-    fetchPost(`/cart/add/${productId}/`).then((data) => {
+    fetchPost(`/${languageCode}/cart/add/${productId}/`).then((data) => {
       if (data['status'] === 'ok') {
         updateCartItem(productId, 'inc');
         updatedCheckout(data['checkout']);
@@ -84,7 +86,7 @@ decrementButtons.forEach((dec) => {
   dec.addEventListener('click', () => {
     const productId = dec.id.split('-')[1];
 
-    fetchPost(`/cart/remove/${productId}/`).then((data) => {
+    fetchPost(`/${languageCode}/cart/remove/${productId}/`).then((data) => {
       if (data['status'] === 'ok') {
         updateCartItem(productId, 'dec');
         updatedCheckout(data['checkout']);
@@ -100,7 +102,7 @@ clearItemButtons.forEach((clearBtn) => {
   clearBtn.addEventListener('click', () => {
     const productId = clearBtn.id.split('-')[2];
 
-    fetchPost(`/cart/clear/${productId}/`).then((data) => {
+    fetchPost(`/${languageCode}/cart/clear/${productId}/`).then((data) => {
       if (data['status'] === 'ok') {
         updatedCheckout(data['checkout']);
 
