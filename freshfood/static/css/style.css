@@ -234,11 +234,25 @@ a:visited {
 .cart__close:active {
   color: #d32f2f; }
 
+.cart__subgrid {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 8rem; }
+
+.cart__coupon {
+  width: 40rem; }
+
+.cart__coupon-message {
+  text-align: center;
+  font-size: 2rem;
+  color: #666; }
+  .cart__coupon-message span {
+    color: #388e3c; }
+
 .cart__checkout {
   display: flex;
   flex-direction: column;
-  width: 30rem;
-  margin: 2rem 70%; }
+  width: 40rem; }
 
 .cart__checkout p {
   display: flex;
@@ -251,6 +265,9 @@ a:visited {
 
 .cart__checkout a.btn {
   margin-top: 2rem; }
+
+.cart__discount span {
+  color: #388e3c !important; }
 
 .cart__delivery {
   border-bottom: 1px solid #ccc; }
@@ -385,6 +402,9 @@ form p input[type="email"] {
   border: 1px solid #ccc;
   color: #666; }
 
+form p input:focus {
+  border-color: #388e3c; }
+
 form p label {
   font-size: 2rem;
   margin-bottom: 0.5rem;
@@ -449,6 +469,40 @@ form p {
     color: #388e3c; }
   .modal__form--message a:hover {
     text-decoration: underline; }
+
+.payment {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rem; }
+  .payment__form {
+    width: 40%; }
+  .payment__message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8rem; }
+  .payment__icon {
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10rem;
+    border-radius: 50%;
+    margin-bottom: 4rem; }
+  .payment__success {
+    color: #388e3c;
+    border: 1px solid #388e3c; }
+  .payment__fail {
+    color: #d32f2f;
+    border: 1px solid #d32f2f; }
+  .payment__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    color: #666; }
 
 .content {
   margin-top: 10rem;

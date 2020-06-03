@@ -70,15 +70,20 @@
     <div class="cart__subgrid">
       <div class="cart__coupon">
         {% if cart.coupon %}
-          Coupon <span class="text-highlight">'{{ cart.coupon.code }}'</span> applied ({{ cart.coupon.discount }}% off )
+          <p class="heading-secondary">A coupon applied</p>
+            <p class="cart__coupon-message">
+              Coupon <span>{{ cart.coupon.code }}</span> applied <span>({{ cart.coupon.discount }}% off)</span>
+            </p>
         {% else %}
-          <p class="cart__heading">
-            Apply a coupon
-          </p>
-          <form action="{% url 'coupons:apply' %}" method="post" class="form--inline">
+          <p class="heading-secondary">Apply a coupon</p>
+          <form action="{% url 'coupons:apply' %}" method="post">
             {{ coupon_apply_form.as_p }}
             {% csrf_token %}
-            <input type="submit" class="btn btn--primary btn--small" value="Apply">
+            <input
+              type="submit"
+              class="btn btn--primary btn--small"
+              value="Apply"
+            />
           </form>
         {% endif %}
       </div>

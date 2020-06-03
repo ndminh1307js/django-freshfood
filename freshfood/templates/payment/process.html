@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load thumbnail %}
 
 {% block title %}Pay by credit card{% endblock %}
 
@@ -12,20 +13,51 @@
   <p class="heading-primary">Pay By Credit Card</p>
 
   <div class="payment">
-    <form id="payment" method="post">
-      <label for="card-number">Card Number</label>
-      <div id="card-number" class="field"></div>
+    <div class="payment__form">
+      <p class="heading-secondary">Fill Your Credit Card Info</p>
+      <form id="payment" method="post">
+        <label for="card-number">Card Number</label>
+        <div id="card-number" class="field"></div>
 
-      <label for="cvv">CCV</label>
-      <div id="cvv" class="field"></div>
+        <label for="cvv">CCV</label>
+        <div id="cvv" class="field"></div>
 
-      <label for="expiration-date">Expiration Date</label>
-      <div id="expiration-date" class="field"></div>
+        <label for="expiration-date">Expiration Date</label>
+        <div id="expiration-date" class="field"></div>
 
-      <input type="hidden" name="payment_method_nonce" id="nonce" value="">
-      {% csrf_token %}
-      <input type="submit" class="btn btn--primary btn--block" value="Complete Payment" disabled>
-    </form>
+        <input type="hidden" name="payment_method_nonce" id="nonce" value="">
+        {% csrf_token %}
+        <input type="submit" class="btn btn--primary btn--block" value="Complete Payment" disabled>
+      </form>
+    </div>
+    <div class="checkout__cart">
+      <p class="heading-secondary">Your Order</p>
+      <ul class="checkout__list">
+        {% for item in order.items.all %}
+          {% with product=item.product %}
+            <li class="checkout__item">
+              <img
+                src="{% thumbnail product.image 80x60 crop %}"
+                alt="{{ product.slug }}"
+                class="checkout__image"
+              />
+              <p class="checkout__quantity">{{ item.quantity }} x</p>
+              <a href="{{ product.get_absolute_url }}" class="checkout__title">
+                {{ product.name }}
+              </a>
+              <p class="checkout__total-price">${{ item.total_price }}</p>
+            </li>
+          {% endwith %}
+        {% endfor %}
+      </ul>
+      
+      <ul class="checkout__price">
+        <li>
+          Subtotal:
+          <span>${{ order.get_total_cost|floatformat:2 }}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <input type="hidden" id="client-token" value="{{client_token}}">
