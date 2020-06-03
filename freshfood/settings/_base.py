@@ -47,6 +47,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'easy_thumbnails',
     'phonenumber_field',
+    'rosetta',
 ]
 
 LOCAL_APPS = [

@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Pay by credit card{% endblock %}
+{% block title %}{% trans 'Pay by credit card' %}{% endblock %}
 
 {% block content %}
   <p class="breadcrumb">
-    <a href="/">FreshFood Homepage</a>
-    <a href="{% url 'payment:process' %}">Payment</a>
+    <a href="/">FreshFood</a>
+    <a href="{% url 'payment:process' %}">{% trans 'Payment' %}</a>
   </p>
 
-  <p class="heading-primary">Pay By Credit Card</p>
+  <p class="heading-primary">{% trans 'Pay by credit card' %}</p>
 
   <div class="payment">
     <div class="payment__message">
@@ -16,8 +17,8 @@
         <i class="fas fa-check"></i>
       </p>
       <p class="payment__text">
-        <span>Your payment has been successfully completed</span>
-        <span>Check your order email to review this order payment</span>
+        <span>{% trans 'Your payment has been successfully completed' %}</span>
+        <span>{% trans 'Check your order email to review this order payment' %}</span>
       </p>
     </div>
   </div>

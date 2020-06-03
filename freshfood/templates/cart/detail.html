@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% load thumbnail %}
 
-{% block title %}Your cart{% endblock %}
+{% block title %}{% trans 'Your cart' %}{% endblock %}
 
 {% block content %}
   <p class="breadcrumb">
-    <a href="/">FreshFood Homepage</a>
-    <a href="{% url 'cart:cart_detail' %}">Your cart</a>
+    <a href="/">FreshFood</a>
+    <a href="{% url 'cart:cart_detail' %}">{% trans 'Your cart' %}</a>
   </p>
 
-  <p class="heading-primary">Your Cart</p>
+  <p class="heading-primary">{% trans 'Your Cart' %}</p>
 
   <div class="cart">
     <div class="cart__grid">
@@ -35,7 +36,7 @@
                 <p
                   class="cart__price"
                 >
-                  Price:
+                  {% trans 'Price' %}:
                   <span class="cart__unit">$</span>
                   <span
                     class="cart__price-number"
@@ -47,7 +48,7 @@
                 <p
                   class="cart__price"
                 >
-                  Total:
+                  {% trans 'Total' %}:
                   <span class="cart__unit">$</span>
                   <span
                     class="cart__price-number"
@@ -70,19 +71,21 @@
     <div class="cart__subgrid">
       <div class="cart__coupon">
         {% if cart.coupon %}
-          <p class="heading-secondary">A coupon applied</p>
+          <p class="heading-secondary">{% trans 'A coupon applied' %}</p>
             <p class="cart__coupon-message">
-              Coupon <span>{{ cart.coupon.code }}</span> applied <span>({{ cart.coupon.discount }}% off)</span>
+              {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+                Coupon <span>{{ code }}</span> applied <span>({{ discount }}% off)</span>
+              {% endblocktrans %}
             </p>
         {% else %}
-          <p class="heading-secondary">Apply a coupon</p>
+          <p class="heading-secondary">{% trans 'Apply a coupon' %}</p>
           <form action="{% url 'coupons:apply' %}" method="post">
             {{ coupon_apply_form.as_p }}
             {% csrf_token %}
             <input
               type="submit"
               class="btn btn--primary btn--small"
-              value="Apply"
+              value="{% trans 'Apply' %}"
             />
           </form>
         {% endif %}
@@ -90,22 +93,22 @@
 
       <div class="cart__checkout">
         <p class="cart__total">
-          Cart total:
+          {% trans 'Cart total' %}:
           <span class="cart__unit">$</span>
           <span id="cart-total">{{ checkout.cart_total }}</span>
         </p>
         <p class="cart__discount">
-          Discount:
+          {% trans 'Discount' %}:
           <span class="cart__unit">- $</span>
           <span id="discount">{{ cart.get_discount|floatformat:2 }}</span>
         </p>
         <p class="cart__delivery">
-          Delivery:
+          {% trans 'Delivery'%}:
           <span class="cart__unit">$</span>
           <span id="delivery">{{ checkout.delivery }}</span>
         </p>
         <p class="cart__subtotal">
-          Subtotal:
+          {% trans 'Subtotal' %}:
           <span class="cart__unit">$</span>
           <span id="subtotal">{{ cart.get_total_price_after_discount|floatformat:2 }}</span>
         </p>
@@ -113,7 +116,7 @@
           href="{% url 'orders:order_create' %}"
           class="btn btn--primary btn--block"
         >
-          Proceed To Checkout
+          {% trans 'Proceed To Checkout' %}
         </a>
       </div>
     </div>

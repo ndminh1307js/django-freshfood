@@ -1,32 +1,33 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% load thumbnail %}
 
-{% block title %}Checkout{% endblock %}
+{% block title %}{% trans 'Checkout' %}{% endblock %}
 
 {% block content %}
   <p class="breadcrumb">
-    <a href="/">FreshFood Homepage</a>
-    <a href="{% url 'orders:order_create' %}">Checkout</a>
+    <a href="/">FreshFood</a>
+    <a href="{% url 'orders:order_create' %}">{% trans 'Checkout' %}</a>
   </p>
 
-  <p class="heading-primary">Your Checkout</p>
+  <p class="heading-primary">{% trans 'Checkout' %}</p>
 
   <div class="checkout">
     <div class="checkout__order">
-      <p class="heading-secondary">Fill All Information Below</p>
+      <p class="heading-secondary">{% trans 'Fill All Information Below' %}</p>
       <form method="post">
         {{ form.as_p }}
         {% csrf_token %}
         <input
           type="submit"
           class="btn btn--primary btn--block"
-          value="Place Order"
+          value="{% trans 'Place Order' %}"
         />
       </form>
     </div>
     <div class="checkout__cart">
-      <p class="heading-secondary">Your Order</p>
+      <p class="heading-secondary">{% trans 'Your Order' %}</p>
       <ul class="checkout__list">
         {% for item in cart %}
           {% with product=item.product %}
@@ -47,19 +48,19 @@
       </ul>
       <ul class="checkout__price">
         <li>
-          Cart total:
+          {% trans 'Cart total' %}:
           <span>${{ checkout.cart_total }}</span>
         </li>
         <li>
-          Discount:
+          {% trans 'Discount' %}:
           <span>- ${{ cart.get_discount|floatformat:2 }}</span>
         </li>
         <li>
-          Delivery:
+          {% trans 'Delivery' %}:
           <span>${{ checkout.delivery }}</span>
         </li>
         <li>
-          Subtotal:
+          {% trans 'Subtotal' %}:
           <span>${{ cart.get_total_price_after_discount|floatformat:2 }}</span>
         </li>
       </ul>

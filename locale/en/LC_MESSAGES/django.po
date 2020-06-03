@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-03 19:28+0700\n"
+"POT-Creation-Date: 2020-06-03 20:24+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,3 +49,258 @@ msgstr "English"
 #: freshfood/settings/_base.py:138
 msgid "Vietnamese"
 msgstr "Vietnamese"
+
+#: freshfood/templates/base.html:30
+msgid "Login"
+msgstr ""
+
+#: freshfood/templates/base.html:48
+msgid "Homepage"
+msgstr ""
+
+#: freshfood/templates/base.html:51
+msgid "Fresh Foods"
+msgstr ""
+
+#: freshfood/templates/base.html:54
+msgid "Fresh Drinks"
+msgstr ""
+
+#: freshfood/templates/base.html:57
+msgid "Kitchen Gadgets"
+msgstr ""
+
+#: freshfood/templates/base.html:60
+msgid "Search"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:6
+#: freshfood/templates/cart/detail.html:11
+msgid "Your cart"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:14
+msgid "Your Cart"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:39
+#: freshfood/templates/home/index.html:43
+#: freshfood/templates/home/index.html:73
+#: freshfood/templates/products/product/detail.html:31
+#: freshfood/templates/products/product/list.html:38
+msgid "Price"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:51
+msgid "Total"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:74
+msgid "A coupon applied"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:76
+#, python-format
+msgid ""
+"\n"
+"                Coupon <span>%(code)s</span> applied <span>(%(discount)s%% "
+"off)</span>\n"
+"              "
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:81
+msgid "Apply a coupon"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:88
+msgid "Apply"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:96
+#: freshfood/templates/orders/order/create.html:51
+msgid "Cart total"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:101
+#: freshfood/templates/orders/order/create.html:55
+msgid "Discount"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:106
+#: freshfood/templates/orders/order/create.html:59
+msgid "Delivery"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:111
+#: freshfood/templates/orders/order/create.html:63
+#: freshfood/templates/payment/process.html:57
+msgid "Subtotal"
+msgstr ""
+
+#: freshfood/templates/cart/detail.html:119
+msgid "Proceed To Checkout"
+msgstr ""
+
+#: freshfood/templates/home/index.html:6
+msgid "FreshFood - Healthy & Balance"
+msgstr ""
+
+#: freshfood/templates/home/index.html:16
+msgid "Healthy And Balance"
+msgstr ""
+
+#: freshfood/templates/home/index.html:18
+msgid "That is all that FreshFood brings up to you"
+msgstr ""
+
+#: freshfood/templates/home/index.html:21
+msgid "Explore Now"
+msgstr ""
+
+#: freshfood/templates/home/index.html:27
+msgid "New Products"
+msgstr ""
+
+#: freshfood/templates/home/index.html:47
+#: freshfood/templates/home/index.html:77
+#: freshfood/templates/products/product/detail.html:46
+#: freshfood/templates/products/product/list.html:42
+msgid "Add To Cart"
+msgstr ""
+
+#: freshfood/templates/home/index.html:48
+#: freshfood/templates/home/index.html:78
+#: freshfood/templates/products/product/list.html:47
+msgid "Detail"
+msgstr ""
+
+#: freshfood/templates/home/index.html:82
+msgid "No products"
+msgstr ""
+
+#: freshfood/templates/orders/order/create.html:6
+#: freshfood/templates/orders/order/create.html:11
+#: freshfood/templates/orders/order/create.html:14
+#: freshfood/templates/orders/order/created.html:11
+#: freshfood/templates/products/product/detail.html:49
+msgid "Checkout"
+msgstr ""
+
+#: freshfood/templates/orders/order/create.html:18
+msgid "Fill All Information Below"
+msgstr ""
+
+#: freshfood/templates/orders/order/create.html:25
+msgid "Place Order"
+msgstr ""
+
+#: freshfood/templates/orders/order/create.html:30
+#: freshfood/templates/payment/process.html:35
+msgid "Your Order"
+msgstr ""
+
+#: freshfood/templates/orders/order/created.html:6
+msgid "Your order has been processed"
+msgstr ""
+
+#: freshfood/templates/orders/order/created.html:14
+msgid "Thank you for your order"
+msgstr ""
+
+#: freshfood/templates/orders/order/created.html:19
+#, python-format
+msgid ""
+"\n"
+"          Your order number <a href=\"%(url)s\">#%(id)s</a> has been "
+"processed and is\n"
+"          preparing for shipping. You can review this order at\n"
+"          <a href=\"%(order.get_absolute_url)s\">this link</a>\n"
+"        "
+msgstr ""
+
+#: freshfood/templates/orders/order/created.html:28
+msgid "Continue Shopping"
+msgstr ""
+
+#: freshfood/templates/orders/order/created.html:29
+msgid "Back To Homepage"
+msgstr ""
+
+#: freshfood/templates/payment/canceled.html:4
+#: freshfood/templates/payment/canceled.html:12
+#: freshfood/templates/payment/done.html:4
+#: freshfood/templates/payment/done.html:12
+#: freshfood/templates/payment/process.html:6
+msgid "Pay by credit card"
+msgstr ""
+
+#: freshfood/templates/payment/canceled.html:9
+#: freshfood/templates/payment/done.html:9
+#: freshfood/templates/payment/process.html:11
+#: freshfood/templates/products/product/detail.html:52
+msgid "Payment"
+msgstr ""
+
+#: freshfood/templates/payment/canceled.html:20
+msgid "Your payment has been failed"
+msgstr ""
+
+#: freshfood/templates/payment/canceled.html:21
+msgid "There is an error that occurred when completing your payment process"
+msgstr ""
+
+#: freshfood/templates/payment/canceled.html:22
+msgid "You can try again in a few minutes"
+msgstr ""
+
+#: freshfood/templates/payment/done.html:20
+msgid "Your payment has been successfully completed"
+msgstr ""
+
+#: freshfood/templates/payment/done.html:21
+msgid "Check your order email to review this order payment"
+msgstr ""
+
+#: freshfood/templates/payment/process.html:14
+msgid "Pay By Credit Card"
+msgstr ""
+
+#: freshfood/templates/payment/process.html:18
+msgid "Fill Your Credit Card Information"
+msgstr ""
+
+#: freshfood/templates/payment/process.html:31
+msgid "Complete Payment"
+msgstr ""
+
+#: freshfood/templates/products/product/detail.html:33
+msgid "Stock"
+msgstr ""
+
+#: freshfood/templates/products/product/detail.html:36
+msgid "In-stock"
+msgstr ""
+
+#: freshfood/templates/products/product/detail.html:38
+msgid "Out of stock"
+msgstr ""
+
+#: freshfood/templates/products/product/detail.html:51
+msgid "Shipping"
+msgstr ""
+
+#: freshfood/templates/products/product/detail.html:51
+msgid "Free"
+msgstr ""
+
+#: freshfood/templates/products/product/detail.html:52
+msgid "Credit Card"
+msgstr ""
+
+#: freshfood/templates/products/product/list.html:8
+msgid "Category"
+msgstr ""
+
+#: freshfood/templates/products/product/list.html:51
+msgid "No Products"
+msgstr ""

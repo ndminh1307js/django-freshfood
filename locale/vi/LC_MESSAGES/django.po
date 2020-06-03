@@ -8,39 +8,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-03 19:28+0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2020-06-03 20:24+0700\n"
+"PO-Revision-Date: 2020-06-03 14:21+0000\n"
+"Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.9.3\n"
 
 #: freshfood/apps/coupons/forms.py:7
 msgid "Enter coupon code"
-msgstr ""
+msgstr "Nhập mã giảm giá"
 
 #: freshfood/apps/users/admin.py:13
 msgid "Permissions"
-msgstr ""
+msgstr "Quyền hạn"
 
 #: freshfood/apps/users/managers.py:16
 msgid "The email must be set"
-msgstr ""
+msgstr "Email phải được nhập"
 
 #: freshfood/apps/users/managers.py:33
 msgid "Superuser must have is_staff=True"
-msgstr ""
+msgstr "Superuser phải có thuộc tính is_staff=True"
 
 #: freshfood/apps/users/managers.py:35
 msgid "Superuser must have is_superuser=True"
-msgstr ""
+msgstr "Superuser phải có thuộc tính is_superuser=True"
 
 #: freshfood/apps/users/models.py:10
 msgid "Email address"
-msgstr ""
+msgstr "Địa chỉ email"
 
 #: freshfood/settings/_base.py:137
 msgid "English"
@@ -49,3 +50,260 @@ msgstr "Tiếng Anh"
 #: freshfood/settings/_base.py:138
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
+
+#: freshfood/templates/base.html:30
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: freshfood/templates/base.html:48
+msgid "Homepage"
+msgstr "Trang chủ"
+
+#: freshfood/templates/base.html:51
+msgid "Fresh Foods"
+msgstr "Món Ăn"
+
+#: freshfood/templates/base.html:54
+msgid "Fresh Drinks"
+msgstr "Đồ Uống"
+
+#: freshfood/templates/base.html:57
+msgid "Kitchen Gadgets"
+msgstr "Dụng cụ bếp"
+
+#: freshfood/templates/base.html:60
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: freshfood/templates/cart/detail.html:6
+#: freshfood/templates/cart/detail.html:11
+msgid "Your cart"
+msgstr "Giỏ hàng"
+
+#: freshfood/templates/cart/detail.html:14
+msgid "Your Cart"
+msgstr "Giỏ Hàng"
+
+#: freshfood/templates/cart/detail.html:39
+#: freshfood/templates/home/index.html:43
+#: freshfood/templates/home/index.html:73
+#: freshfood/templates/products/product/detail.html:31
+#: freshfood/templates/products/product/list.html:38
+msgid "Price"
+msgstr "Giá"
+
+#: freshfood/templates/cart/detail.html:51
+msgid "Total"
+msgstr "Tổng cộng"
+
+#: freshfood/templates/cart/detail.html:74
+msgid "A coupon applied"
+msgstr "Một mã giảm giá đã được áp dụng"
+
+#: freshfood/templates/cart/detail.html:76
+#, python-format
+msgid ""
+"\n"
+"                Coupon <span>%(code)s</span> applied <span>(%(discount)s%% off)</span>\n"
+"              "
+msgstr ""
+"\n"
+"Mã giảm giá <span>%(code)s</span> được áp dụng <span>(giảm %(discount)s%%)</span>"
+
+#: freshfood/templates/cart/detail.html:81
+msgid "Apply a coupon"
+msgstr "Áp dụng mã giảm giá"
+
+#: freshfood/templates/cart/detail.html:88
+msgid "Apply"
+msgstr "Áp dụng"
+
+#: freshfood/templates/cart/detail.html:96
+#: freshfood/templates/orders/order/create.html:51
+msgid "Cart total"
+msgstr "Tổng giỏ hàng"
+
+#: freshfood/templates/cart/detail.html:101
+#: freshfood/templates/orders/order/create.html:55
+msgid "Discount"
+msgstr "Giảm giá"
+
+#: freshfood/templates/cart/detail.html:106
+#: freshfood/templates/orders/order/create.html:59
+msgid "Delivery"
+msgstr "Phí vận chuyển"
+
+#: freshfood/templates/cart/detail.html:111
+#: freshfood/templates/orders/order/create.html:63
+#: freshfood/templates/payment/process.html:57
+msgid "Subtotal"
+msgstr "Tổng cộng"
+
+#: freshfood/templates/cart/detail.html:119
+msgid "Proceed To Checkout"
+msgstr "Đến Trang Thanh Toán"
+
+#: freshfood/templates/home/index.html:6
+msgid "FreshFood - Healthy & Balance"
+msgstr "FreshFood - Nơi mang lại sức khoẻ và sự cân bằng cho cuộc sống"
+
+#: freshfood/templates/home/index.html:16
+msgid "Healthy And Balance"
+msgstr "Sức khoẻ Và Cân bằng"
+
+#: freshfood/templates/home/index.html:18
+msgid "That is all that FreshFood brings up to you"
+msgstr "Đó là những gì FreshFood muốn mang lại cho khách hàng"
+
+#: freshfood/templates/home/index.html:21
+msgid "Explore Now"
+msgstr "Khám phá ngay"
+
+#: freshfood/templates/home/index.html:27
+msgid "New Products"
+msgstr "Sản phẩm mới"
+
+#: freshfood/templates/home/index.html:47
+#: freshfood/templates/home/index.html:77
+#: freshfood/templates/products/product/detail.html:46
+#: freshfood/templates/products/product/list.html:42
+msgid "Add To Cart"
+msgstr "Đặt mua"
+
+#: freshfood/templates/home/index.html:48
+#: freshfood/templates/home/index.html:78
+#: freshfood/templates/products/product/list.html:47
+msgid "Detail"
+msgstr "Chi tiết"
+
+#: freshfood/templates/home/index.html:82
+msgid "No products"
+msgstr "Không có sản phẩm nào"
+
+#: freshfood/templates/orders/order/create.html:6
+#: freshfood/templates/orders/order/create.html:11
+#: freshfood/templates/orders/order/create.html:14
+#: freshfood/templates/orders/order/created.html:11
+#: freshfood/templates/products/product/detail.html:49
+msgid "Checkout"
+msgstr "Đặt hàng"
+
+#: freshfood/templates/orders/order/create.html:18
+msgid "Fill All Information Below"
+msgstr "Điền các thông tin bên dưới"
+
+#: freshfood/templates/orders/order/create.html:25
+msgid "Place Order"
+msgstr "Đặt hàng"
+
+#: freshfood/templates/orders/order/create.html:30
+#: freshfood/templates/payment/process.html:35
+msgid "Your Order"
+msgstr "Đơn hàng của bạn"
+
+#: freshfood/templates/orders/order/created.html:6
+msgid "Your order has been processed"
+msgstr "Đơn hàng của bạn đang được xử lý"
+
+#: freshfood/templates/orders/order/created.html:14
+msgid "Thank you for your order"
+msgstr "Cám ơn bạn đã đặt hàng tại FreshFood"
+
+#: freshfood/templates/orders/order/created.html:19
+#, python-format
+msgid ""
+"\n"
+"          Your order number <a href=\"%(url)s\">#%(id)s</a> has been processed and is\n"
+"          preparing for shipping. You can review this order at\n"
+"          <a href=\"%(order.get_absolute_url)s\">this link</a>\n"
+"        "
+msgstr ""
+"\n"
+"Mã đơn hàng <a href=\"%(url)s\">#%(id)s</a> đang được chúng tôi xử lý và sẽ trao tận tay bạn trong thời gian sớm nhất. Bạn có thể kiểm tra lại đơn hàng <a href=\"%(order.get_absolute_url)s\">tại đây</a>"
+
+#: freshfood/templates/orders/order/created.html:28
+msgid "Continue Shopping"
+msgstr "Tiếp tục mua hàng"
+
+#: freshfood/templates/orders/order/created.html:29
+msgid "Back To Homepage"
+msgstr "Trở về Trang Chủ"
+
+#: freshfood/templates/payment/canceled.html:4
+#: freshfood/templates/payment/canceled.html:12
+#: freshfood/templates/payment/done.html:4
+#: freshfood/templates/payment/done.html:12
+#: freshfood/templates/payment/process.html:6
+msgid "Pay by credit card"
+msgstr "Thanh toán bằng thẻ tín dụng"
+
+#: freshfood/templates/payment/canceled.html:9
+#: freshfood/templates/payment/done.html:9
+#: freshfood/templates/payment/process.html:11
+#: freshfood/templates/products/product/detail.html:52
+msgid "Payment"
+msgstr "Thanh toán đơn hàng"
+
+#: freshfood/templates/payment/canceled.html:20
+msgid "Your payment has been failed"
+msgstr "Thanh toán thất bại"
+
+#: freshfood/templates/payment/canceled.html:21
+msgid "There is an error that occurred when completing your payment process"
+msgstr "Có lỗi xảy ra trong quá trình thanh toán đơn hàng của bạn"
+
+#: freshfood/templates/payment/canceled.html:22
+msgid "You can try again in a few minutes"
+msgstr "Vui lòng thử lại sau một vài phút"
+
+#: freshfood/templates/payment/done.html:20
+msgid "Your payment has been successfully completed"
+msgstr "Đơn hàng đã được thanh toán thành công"
+
+#: freshfood/templates/payment/done.html:21
+msgid "Check your order email to review this order payment"
+msgstr "Vui lòng kiểm tra hộp thư email của bạn để xem chi tiết đơn hàng"
+
+#: freshfood/templates/payment/process.html:14
+msgid "Pay By Credit Card"
+msgstr "Thanh Toán Bằng Thẻ Tín Dụng"
+
+#: freshfood/templates/payment/process.html:18
+msgid "Fill Your Credit Card Information"
+msgstr "Điền thông tin thẻ tín dụng"
+
+#: freshfood/templates/payment/process.html:31
+msgid "Complete Payment"
+msgstr "Thanh toán"
+
+#: freshfood/templates/products/product/detail.html:33
+msgid "Stock"
+msgstr "Có sẵn"
+
+#: freshfood/templates/products/product/detail.html:36
+msgid "In-stock"
+msgstr "Có"
+
+#: freshfood/templates/products/product/detail.html:38
+msgid "Out of stock"
+msgstr "Không"
+
+#: freshfood/templates/products/product/detail.html:51
+msgid "Shipping"
+msgstr "Phí vận chuyển"
+
+#: freshfood/templates/products/product/detail.html:51
+msgid "Free"
+msgstr "Miễn phí"
+
+#: freshfood/templates/products/product/detail.html:52
+msgid "Credit Card"
+msgstr "Thẻ tín dụng"
+
+#: freshfood/templates/products/product/list.html:8
+msgid "Category"
+msgstr "Loại sản phẩm"
+
+#: freshfood/templates/products/product/list.html:51
+msgid "No Products"
+msgstr "Không có sản phẩm nào"

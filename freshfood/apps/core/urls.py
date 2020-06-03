@@ -28,6 +28,7 @@ urlpatterns = [
     path('orders/', include('freshfood.apps.orders.urls', namespace='orders')),
     path('payment/', include('freshfood.apps.payment.urls', namespace='payment')),
     path('coupons/', include('freshfood.apps.coupons.urls', namespace='coupons')),
+    path('rosetta/', include('rosetta.urls')),
 ]
 
 if settings.DEBUG:

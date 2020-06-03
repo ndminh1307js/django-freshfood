@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load thumbnail %}
 
 {% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
 <p class="breadcrumb">
-  <a href="/">FreshFood Homepage</a>
+  <a href="/">FreshFood</a>
   <a href="{{ product.category.get_absolute_url }}">
     {{ product.category.name }}
   </a>
@@ -27,22 +28,28 @@
     <p class="detail__description">
       {{ product.description }}
     </p>
-    <p class="detail__price">Price: <span>${{ product.price }}</span></p>
+    <p class="detail__price">{% trans 'Price' %}: <span>${{ product.price }}</span></p>
     <p class="detail__stock">
-      Stock:
-      <span>{% if product.available %}In-stock{% else %}Out of tock{% endif%}</span>
+      {% trans 'Stock' %}:
+      <span>
+        {% if product.available %}
+          {% trans 'In-stock' %}
+        {% else %}
+          {% trans 'Out of stock' %}
+        {% endif%}
+      </span>
     </p>
     <p class="detail__ingredients">
       Main ingredients: <span>Tomato, Noodle, Beef</span>
     </p>
     <a href="#" class="btn btn--primary btn--big btn--block">
-      Add To My Menu
+      {% trans 'Add To Cart' %}
     </a>
     <a href="#" class="btn btn--danger btn--big btn--block">
-      Checkout
+      {% trans 'Checkout' %}
     </a>
-    <p class="detail__shipping">Shipping: <span>Free</span></p>
-    <p class="detail__payment">Payment: COD/ATM/VISA/MATERCARD/PAYPAL</p>
+    <p class="detail__shipping">{% trans 'Shipping' %}: <span>{% trans 'Free' %}</span></p>
+    <p class="detail__payment">{% trans 'Payment' %}: {% trans 'Credit Card' %}</p>
   </div>
 </div>
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% load thumbnail %}
 
-{% block title %}FreshFood - Healthy & Balance{% endblock %}
+{% block title %}{% trans 'FreshFood - Healthy & Balance' %}{% endblock %}
 
 {% block hero %}
 <div class="header__background">
@@ -12,18 +13,18 @@
 
 {% block message %}
 <div class="message">
-  <p class="message__title">Healthy And Balance</p>
+  <p class="message__title">{% trans 'Healthy And Balance' %}</p>
   <p class="message__subtitle">
-    That is all that FreshFood brings up to you
+    {% trans 'That is all that FreshFood brings up to you' %}
   </p>
   <a href="#" class="btn btn--primary btn--big">
-    Explore Now
+    {% trans 'Explore Now' %}
   </a>
 </div>
 {% endblock %}
 
 {% block content %}
-<p class="heading-primary">New Products</p>
+<p class="heading-primary">{% trans 'New Products' %}</p>
 
 <div class="card-grid">
   {% for product in new_products %}
@@ -39,12 +40,12 @@
         <p class="card__description">
           {{ product.description }}
         </p>
-        <p class="card__price">Price: <span>${{ product.price }}</span></p>
+        <p class="card__price">{% trans 'Price' %}: <span>${{ product.price }}</span></p>
       </div>
 
       <div class="card__button">
-        <a href="#" class="card__button--order" id="product-{{ product.id }}">Order</a>
-        <a href="{{ product.get_absolute_url }}" class="card__button--detail">Detail</a>
+        <a href="#" class="card__button--order" id="product-{{ product.id }}">{% trans 'Add To Cart' %}</a>
+        <a href="{{ product.get_absolute_url }}" class="card__button--detail">{% trans 'Detail' %}</a>
       </div>
     </div>
   {% empty %}
@@ -69,16 +70,16 @@
           <p class="card__description">
             {{ product.description }}
           </p>
-          <p class="card__price">Price: <span>${{ product.price }}</span></p>
+          <p class="card__price">{% trans 'Price' %}: <span>${{ product.price }}</span></p>
         </div>
 
         <div class="card__button">
-          <a href="#" class="card__button--order" id="product-{{ product.id }}">Order</a>
-          <a href="{{ product.get_absolute_url }}" class="card__button--detail">Detail</a>
+          <a href="#" class="card__button--order" id="product-{{ product.id }}">{% trans 'Add To Cart' %}</a>
+          <a href="{{ product.get_absolute_url }}" class="card__button--detail">{% trans 'Detail' %}</a>
         </div>
       </div>
     {% empty %}
-      No products
+      {% trans 'No products' %}
     {% endfor %}
   </div>
 {% endfor %}

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,7 @@
 
         <a href="#" class="header__login-button">
           <i class="fas fa-sign-in-alt"></i>
-          <p>Login</p>
+          <p>{% trans 'Login' %}</p>
         </a>
 
         <a href="{% url 'cart:cart_detail' %}" class="header__cart-button">
@@ -44,19 +45,19 @@
       <nav class="navigation">
         <ul class="navigation__list">
           <li class="navigation__item">
-            <a href="/">Homepage</a>
+            <a href="/">{% trans 'Homepage' %}</a>
           </li>
           <li class="navigation__item">
-            <a href="/products/fresh-foods/">Fresh Foods</a>
+            <a href="/products/fresh-foods/">{% trans 'Fresh Foods' %}</a>
           </li>
           <li class="navigation__item">
-            <a href="/products/fresh-drinks/">Fresh Drinks</a>
+            <a href="/products/fresh-drinks/">{% trans 'Fresh Drinks' %}</a>
           </li>
           <li class="navigation__item">
-            <a href="/products/kitchen-gadgets/">Kitchen Gadgets</a>
+            <a href="/products/kitchen-gadgets/">{% trans 'Kitchen Gadgets' %}</a>
           </li>
           <li class="navigation__item">
-            <a href="#">Search</a>
+            <a href="#">{% trans 'Search' %}</a>
           </li>
 
           <li class="navigation__social-media">
