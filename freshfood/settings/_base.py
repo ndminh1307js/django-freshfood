@@ -48,6 +48,7 @@ THIRD_PARTY_APPS = [
     'easy_thumbnails',
     'phonenumber_field',
     'rosetta',
+    'parler',
 ]
 
 LOCAL_APPS = [
@@ -199,3 +200,15 @@ BRAINTREE_CONF = braintree.Configuration(
     public_key=BRAINTREE_PUBLIC_KEY,
     private_key=BRAINTREE_PRIVATE_KEY
 )
+
+# Parler settings
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'vi'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False
+    }
+}

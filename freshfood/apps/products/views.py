@@ -13,7 +13,10 @@ class ProductListView(ListView):
         products = Product.objects.all()
 
         if category_slug:
-            category = get_object_or_404(Category, slug=category_slug)
+            language = request.LANGUAGE_CODE
+            category = get_object_or_404(Category,
+                                         translations__language_code=language,
+                                         translations__slug=category_slug)
             products = products.filter(category=category)
 
         return render(request,
@@ -27,9 +30,11 @@ class ProductDetailView(DetailView):
     template_name = 'products/product/detail.html'
 
     def get(self, request, id, slug):
+        language = request.LANGUAGE_CODE
         product = get_object_or_404(Product,
                                     id=id,
-                                    slug=slug)
+                                    translations__language_code=language,
+                                    translations__slug=slug)
 
         return render(request,
                       self.template_name,
