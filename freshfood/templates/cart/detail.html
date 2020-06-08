@@ -121,6 +121,32 @@
       </div>
     </div>
   </div>
+
+  <div class="recommend">
+    <p class="heading-secondary">{% trans 'People bought this also bought' %}</p>
+    <div class="card-grid">
+      {% for product in recommended_products %}
+      <div class="card">
+        <img src="{% thumbnail product.image 640x480 crop %}" alt="{{ product.slug }}" class="card__image" />
+  
+        <div class="card__content">
+          <p class="card__title">{{ product.name }}</p>
+          <p class="card__description">
+            {{ product.description }}
+          </p>
+          <p class="card__price">{% trans 'Price' %}: <span>${{ product.price }}</span></p>
+        </div>
+  
+        <div class="card__button">
+          <a href="#" class="card__button--order" id="product-{{ product.id }}">{% trans 'Add To Cart' %}</a>
+          <a href="{{ product.get_absolute_url }}" class="card__button--detail">
+            {% trans 'Detail' %}
+          </a>
+        </div>
+      </div>
+      {% empty %} {% trans 'No Products' %} {% endfor%}
+    </div>
+  </div>
 {% endblock %}
 
 {% block script %}

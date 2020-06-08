@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 
 from .models import Category, Product
+from .recommender import Recommender
 
 
 class ProductListView(ListView):
@@ -35,7 +36,11 @@ class ProductDetailView(DetailView):
                                     id=id,
                                     translations__language_code=language,
                                     translations__slug=slug)
+        r = Recommender()
+        recommended_products = r.suggest_products_for([product], 4)
+        print(recommended_products)
 
         return render(request,
                       self.template_name,
-                      {'product': product})
+                      {'product': product,
+                       'recommend_products': recommended_products})
