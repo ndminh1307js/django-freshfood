@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-03 20:24+0700\n"
+"POT-Creation-Date: 2020-06-08 20:43+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,11 +42,11 @@ msgstr ""
 msgid "Email address"
 msgstr ""
 
-#: freshfood/settings/_base.py:137
+#: freshfood/settings/_base.py:139
 msgid "English"
 msgstr "English"
 
-#: freshfood/settings/_base.py:138
+#: freshfood/settings/_base.py:140
 msgid "Vietnamese"
 msgstr "Vietnamese"
 

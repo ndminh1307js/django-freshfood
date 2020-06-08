@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-03 20:24+0700\n"
+"POT-Creation-Date: 2020-06-08 20:43+0700\n"
 "PO-Revision-Date: 2020-06-04 23:11+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,11 +43,11 @@ msgstr "Superuser phải có thuộc tính is_superuser=True"
 msgid "Email address"
 msgstr "Địa chỉ email"
 
-#: freshfood/settings/_base.py:137
+#: freshfood/settings/_base.py:139
 msgid "English"
 msgstr "Tiếng Anh"
 
-#: freshfood/settings/_base.py:138
+#: freshfood/settings/_base.py:140
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
@@ -104,11 +104,13 @@ msgstr "Một mã giảm giá đã được áp dụng"
 #, python-format
 msgid ""
 "\n"
-"                Coupon <span>%(code)s</span> applied <span>(%(discount)s%% off)</span>\n"
+"                Coupon <span>%(code)s</span> applied <span>(%(discount)s%% "
+"off)</span>\n"
 "              "
 msgstr ""
 "\n"
-"Mã giảm giá <span>%(code)s</span> được áp dụng <span>(giảm %(discount)s%%)</span>"
+"Mã giảm giá <span>%(code)s</span> được áp dụng <span>(giảm %(discount)s%%)</"
+"span>"
 
 #: freshfood/templates/cart/detail.html:81
 msgid "Apply a coupon"
@@ -213,13 +215,16 @@ msgstr "Cám ơn bạn đã đặt hàng tại FreshFood"
 #, python-format
 msgid ""
 "\n"
-"          Your order number <a href=\"%(url)s\">#%(id)s</a> has been processed and is\n"
+"          Your order number <a href=\"%(url)s\">#%(id)s</a> has been "
+"processed and is\n"
 "          preparing for shipping. You can review this order at\n"
 "          <a href=\"%(order.get_absolute_url)s\">this link</a>\n"
 "        "
 msgstr ""
 "\n"
-"Mã đơn hàng <a href=\"%(url)s\">#%(id)s</a> đang được chúng tôi xử lý và sẽ trao tận tay bạn trong thời gian sớm nhất. Bạn có thể kiểm tra lại đơn hàng <a href=\"%(order.get_absolute_url)s\">tại đây</a>"
+"Mã đơn hàng <a href=\"%(url)s\">#%(id)s</a> đang được chúng tôi xử lý và sẽ "
+"trao tận tay bạn trong thời gian sớm nhất. Bạn có thể kiểm tra lại đơn hàng "
+"<a href=\"%(order.get_absolute_url)s\">tại đây</a>"
 
 #: freshfood/templates/orders/order/created.html:28
 msgid "Continue Shopping"
